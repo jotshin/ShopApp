@@ -1,15 +1,26 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, Button} from 'react-native';
+import Colors from '../../constants/Colors';
 
 const ProductItem = (props) => {
   return (
     <View style={styles.product}>
-      <Image style={styles.image} source={{uri: props.image}} />
-      <Text style={styles.title}>{props.title}</Text>
-      <Text style={styles.price}>${props.price.toFixed(2)}</Text>
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={{uri: props.image}} />
+      </View>
+      <View style={styles.detail}>
+        <Text style={styles.title}>{props.title}</Text>
+        <Text style={styles.price}>${props.price.toFixed(2)}</Text>
+      </View>
       <View style={styles.actions}>
-        <Button title="View details" onPress={props.onViewDetail}></Button>
-        <Button title="To cart" onPress={props.onAddToCart}></Button>
+        <Button
+          color={Colors.primary}
+          title="View details"
+          onPress={props.onViewDetail}></Button>
+        <Button
+          color={Colors.primary}
+          title="To cart"
+          onPress={props.onAddToCart}></Button>
       </View>
     </View>
   );
@@ -32,9 +43,21 @@ const styles = StyleSheet.create({
     height: 300,
     margin: 20,
   },
-  image: {
+  detail: {
+    alignItems: 'center',
+    height: '15%',
+    padding: 10,
+  },
+  imageContainer: {
     width: '100%',
     height: '60%',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    overflow: 'hidden',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
   title: {
     fontSize: 18,
@@ -48,5 +71,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
+    height: '25%',
+    paddingHorizontal: 20,
   },
 });
