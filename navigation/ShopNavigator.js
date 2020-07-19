@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Platform} from 'react-native';
 
 import ProductOverviewScreen from '../screens/shop/ProductOverviewScreen';
+import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
 import Colors from '../constants/Colors';
 
 const StackNavigation = createStackNavigator();
@@ -13,7 +14,7 @@ export default ShopNavigator = () => {
     <NavigationContainer>
       <StackNavigation.Navigator>
         <StackNavigation.Screen
-          name="Main screen"
+          name="ProductOverview"
           component={ProductOverviewScreen}
           options={{
             title: 'Shop App',
@@ -24,11 +25,11 @@ export default ShopNavigator = () => {
               Platform.OS === 'android' ? 'white' : Colors.primary,
           }}
         />
-        {/* <StackNavigation.Screen
-          name="RSSDetailScreen"
-          component={RSSDetailScreen}
-          options={({ route }) => ({ title: `${route.params.feed.title} (${route.params.feed.items.length})` })}
-        /> */}
+        <StackNavigation.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
+          // options={({route}) => ({title: `${route.params.item.title}`})}
+        />
       </StackNavigation.Navigator>
     </NavigationContainer>
   );

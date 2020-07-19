@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 
 import ProductItem from '../../components/shop/ProductItem';
 
-const ProductOverviewScreen = () => {
+const ProductOverviewScreen = ({navigation, route}) => {
   const products = useSelector((state) => state.products.availableProducts);
 
   return (
@@ -13,13 +13,15 @@ const ProductOverviewScreen = () => {
         data={products}
         keyExtractor={(product) => product.id}
         renderItem={(itemData) => {
-          const {imageUrl, title, price} = itemData.item;
+          const {imageUrl, title, price, id} = itemData.item;
           return (
             <ProductItem
               image={imageUrl}
               title={title}
               price={price}
-              onViewDetail={() => {}}
+              onViewDetail={() => {
+                navigation.navigate('ProductDetail', {id, title});
+              }}
               onAddToCart={() => {}}
             />
           );
