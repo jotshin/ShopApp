@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Platform} from 'react-native';
+import {Platform, Button} from 'react-native';
 
 import ProductOverviewScreen from '../screens/shop/ProductOverviewScreen';
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
@@ -17,7 +17,7 @@ export default ShopNavigator = () => {
           name="ProductOverview"
           component={ProductOverviewScreen}
           options={{
-            title: 'Shop App',
+            headerTitle: 'Shop App',
             headerStyle: {
               backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
             },

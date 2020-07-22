@@ -4,10 +4,19 @@ import {useSelector, useDispatch} from 'react-redux';
 
 import ProductItem from '../../components/shop/ProductItem';
 import * as cartActions from '../../store/actions/cart';
+import HeaderButton from '../../components/UI/HeaderButton';
 
 const ProductOverviewScreen = ({navigation, route}) => {
   const products = useSelector((state) => state.products.availableProducts);
   const dispatch = useDispatch();
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <HeaderButton name="ios-cart" onPress={() => console.log('test')} />
+      ),
+    });
+  }, [navigation]);
 
   return (
     <View>
