@@ -5,6 +5,7 @@ import {Platform, Button} from 'react-native';
 
 import ProductOverviewScreen from '../screens/shop/ProductOverviewScreen';
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
+import CartScreen from '../screens/shop/CartScreen';
 import Colors from '../constants/Colors';
 
 const StackNavigation = createStackNavigator();
@@ -34,8 +35,8 @@ export default ShopNavigator = () => {
         <StackNavigation.Screen
           name="ProductDetail"
           component={ProductDetailScreen}
-          // options={({route}) => ({title: `${route.params.item.title}`})}
         />
+        <StackNavigation.Screen name="Cart" component={CartScreen} />
       </StackNavigation.Navigator>
     </NavigationContainer>
   );

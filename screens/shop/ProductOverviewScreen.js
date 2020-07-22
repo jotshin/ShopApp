@@ -13,7 +13,10 @@ const ProductOverviewScreen = ({navigation, route}) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <HeaderButton name="ios-cart" onPress={() => console.log('test')} />
+        <HeaderButton
+          name="ios-cart"
+          onPress={() => navigation.navigate('Cart')}
+        />
       ),
     });
   }, [navigation]);
